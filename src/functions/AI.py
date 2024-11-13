@@ -1,3 +1,4 @@
+# NOTE: This file is for /chat command (Chat with AI)
 # import requests
 # import json
 import os

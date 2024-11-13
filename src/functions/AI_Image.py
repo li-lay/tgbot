@@ -1,3 +1,4 @@
+# NOTE: This file is for /imagine command (AI Image)
 import io
 import os
 

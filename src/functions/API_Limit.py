@@ -1,3 +1,4 @@
+# NOTE: This file is for /limit command (Check API limits)
 import os
 
 import requests

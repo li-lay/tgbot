@@ -1,3 +1,4 @@
+# NOTE: This file is for /translate command (Translate to Khmer)
 import os
 
 import requests

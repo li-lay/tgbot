@@ -1,3 +1,4 @@
+# NOTE: This file is for /meme command (Get meme)
 import os
 
 import requests
