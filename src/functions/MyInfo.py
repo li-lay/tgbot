@@ -4,6 +4,7 @@ from telegram.ext import ContextTypes
 
 
 async def MyInfo(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_chat_action("typing")
     firstName = update.effective_user.first_name
     lastName = update.effective_user.last_name
     userName = update.effective_user.username

@@ -12,6 +12,7 @@ token = os.getenv("RapidAPI_token")
 
 
 async def En2Km(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_chat_action("typing")
     url = "https://free-google-translator.p.rapidapi.com/external-api/free-google-translator"
     text = " ".join(context.args)  # type: ignore
     if text == "":

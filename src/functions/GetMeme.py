@@ -12,6 +12,7 @@ token = os.getenv("RapidAPI_token")
 
 
 async def GetMeme(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_chat_action("upload_photo")
     url = "https://programming-memes-images.p.rapidapi.com/v1/memes"
     headers = {
         "x-rapidapi-key": token,

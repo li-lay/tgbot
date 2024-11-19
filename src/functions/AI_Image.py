@@ -13,6 +13,7 @@ token = os.getenv("Huggingface_token")
 
 
 async def GenerateImage(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_chat_action("upload_photo")
     text = " ".join(context.args)  # type: ignore
     if text == "":
         await update.message.reply_text("Please provide a message to generate image.")
