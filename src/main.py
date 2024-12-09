@@ -3,8 +3,13 @@ import os
 
 from dotenv import load_dotenv
 from telegram import Update
-from telegram.ext import (ApplicationBuilder, CommandHandler, ContextTypes,
-                          MessageHandler, filters)
+from telegram.ext import (
+    ApplicationBuilder,
+    CommandHandler,
+    ContextTypes,
+    MessageHandler,
+    filters,
+)
 
 from functions.AI import AskAI
 from functions.AI_Image import GenerateImage
@@ -31,13 +36,13 @@ logging.basicConfig(
 
 
 async def Start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_chat_action("typing")
-    await update.message.reply_text(
-        f"👋Hello {update.effective_user.first_name}, please use /help to see all available commands!"
+    await update.message.reply_chat_action("typing")  # type: ignore
+    await update.message.reply_text(  # type: ignore
+        f"👋Hello {update.effective_user.first_name}, please use /help to see all available commands!"  # type: ignore
     )
 
 
-app = ApplicationBuilder().token(dev_api).build()
+app = ApplicationBuilder().token(prod_api).build()
 
 app.add_handler(CommandHandler(("start").lower(), Start))
 app.add_handler(CommandHandler(("hello").lower(), Start))

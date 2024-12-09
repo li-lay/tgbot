@@ -11,6 +11,7 @@ token = os.getenv("RapidAPI_token")
 
 
 async def GetAPILimits(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_chat_action("typing")  # type: ignore
     translate_url = "https://free-google-translator.p.rapidapi.com/external-api/free-google-translator"
     text = "Check"
     translate_querystring = {"from": "en", "to": "km", "query": text}
@@ -40,6 +41,6 @@ async def GetAPILimits(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "x-ratelimit-requests-remaining"
     )
 
-    await update.message.reply_text(
+    await update.message.reply_text(  # type: ignore
         f"List of API limits\n\n- Translate api:   {translate_rate_limit_remaining}\n- Meme api     :   {meme_rate_limit_remaining}"
     )

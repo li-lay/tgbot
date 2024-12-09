@@ -4,5 +4,6 @@ image.png
 qrcode.png
 .vscode
 .env
+venv
 .venv
 __pycache__

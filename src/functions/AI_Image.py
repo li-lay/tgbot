@@ -13,10 +13,10 @@ token = os.getenv("Huggingface_token")
 
 
 async def GenerateImage(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_chat_action("upload_photo")
+    await update.message.reply_chat_action("upload_photo")  # type: ignore
     text = " ".join(context.args)  # type: ignore
     if text == "":
-        await update.message.reply_text("Please provide a message to generate image.")
+        await update.message.reply_text("Please provide a message to generate image.")  # type: ignore
         return
     API_URL = (
         "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell"
@@ -34,4 +34,4 @@ async def GenerateImage(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
     image = Image.open(io.BytesIO(image_bytes))
     image.save("image.png")
-    await update.message.reply_photo("image.png")
+    await update.message.reply_photo("image.png")  # type: ignore

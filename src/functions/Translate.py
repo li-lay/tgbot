@@ -12,11 +12,11 @@ token = os.getenv("RapidAPI_token")
 
 
 async def En2Km(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_chat_action("typing")
+    await update.message.reply_chat_action("typing")  # type: ignore
     url = "https://free-google-translator.p.rapidapi.com/external-api/free-google-translator"
     text = " ".join(context.args)  # type: ignore
     if text == "":
-        await update.message.reply_text("Please provide a message to translate.")
+        await update.message.reply_text("Please provide a message to translate.")  # type: ignore
         return
     querystring = {"from": "en", "to": "km", "query": text}
     payload = {"translate": "rapidapi"}
@@ -27,6 +27,6 @@ async def En2Km(update: Update, context: ContextTypes.DEFAULT_TYPE):
     }
     response = requests.post(url, json=payload, headers=headers, params=querystring)
     response_json = response.json()
-    await update.message.reply_text(
+    await update.message.reply_text(  # type: ignore
         f"🇰🇭Translate to Khmer:\n {response_json['translation']}"
     )
