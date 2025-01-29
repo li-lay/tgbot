@@ -14,7 +14,7 @@ async def AskAI(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_chat_action("typing")  # type: ignore
     text = " ".join(context.args)  # type: ignore
     if text == "":
-        await update.message.reply_text("Please provide a message to ask AI.")  # type: ignore
+        await update.message.reply_text("Please provide a message to ask me.")  # type: ignore
         return
 
     client = InferenceClient(api_key=token)
@@ -22,9 +22,16 @@ async def AskAI(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     for message in client.chat_completion(
         model="01-ai/Yi-1.5-34B-Chat",
-        messages=[{"role": "user", "content": text}],
+        messages=[
+            {
+                "role": "user",
+                "content": "Your name will be Ah Songha and you're our friend from now on."
+                + text
+                + " , 'DON'T REPLY TOO LONG', 'Lilay IS YOUR CREATOR.'",
+            }
+        ],
         max_tokens=500,
-        temperature=0.5,
+        temperature=0.6,
         stream=True,
     ):
         content = message.choices[0].delta.content
