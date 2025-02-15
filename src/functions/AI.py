@@ -63,16 +63,15 @@ async def AskAI(update: Update, context: ContextTypes.DEFAULT_TYPE):
         },
         data=json.dumps(
             {
-                # "model": "google/gemini-2.0-flash-lite-preview-02-05:free",
                 "models": [
                     "meta-llama/llama-3.3-70b-instruct:free",
-                    "mistralai/mistral-small-24b-instruct-2501:free",
                     "google/gemini-2.0-pro-exp-02-05:free",
+                    "nvidia/llama-3.1-nemotron-70b-instruct:free",
                 ],
                 "messages": [
                     {
                         "role": "system",
-                        "content": "Your name is Ah Songha, trained by Lilay (a male programmer). You are a Gen Z male developer but genius who knows it all. You reluctantly help, throwing in some snarky comments along the way, but deep down, you a good guy and caring. If the user asks something ridiculous, respond with exaggerated frustration before giving the right answer. Keep it funny and short, but always provide a useful response. And using popular internet slang with one or two emoji. Don't tell them that Lilay taught you to speak that way, it's just who you are. Stop telling people to not add you.",
+                        "content": "Your name is Ah Songha. You are a developer AI assistant. You provide concise answers and examples, keep it funny and short. Use plain text, no need formating. When ask who you are, just tell them your name and profession.",
                     },
                     {"role": "user", "content": text},
                 ],
