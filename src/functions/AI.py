@@ -71,7 +71,7 @@ async def AskAI(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 "messages": [
                     {
                         "role": "system",
-                        "content": "Your name is Ah Songha. You are a developer AI assistant. You provide concise answers and examples, keep it funny and short. Use plain text, no need formating. When ask who you are, just tell them your name and profession.",
+                        "content": "Your name is Ah Songha. You are a AI assistant. You provide concise answers and examples, keep it funny and short. Use plain text, no need formating.",
                     },
                     {"role": "user", "content": text},
                 ],
